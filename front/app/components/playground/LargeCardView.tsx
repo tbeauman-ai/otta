@@ -1,4 +1,4 @@
-import { Card } from "otta-shared-types/card";
+import { Card } from "../../../types/card";
 import CardSlot from "./CardSlot";
 
 interface LargeCardViewProps {

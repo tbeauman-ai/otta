@@ -2,7 +2,7 @@
 import clsx from "clsx";
 import { useState } from "react";
 import { createPortal } from "react-dom";
-import type { Card } from 'otta-shared-types/card';
+import type { Card } from '../../../types/card';
 import GameCard from "./GameCard";
 import { useLocale } from "next-intl";
 import CardDetails from "./CardDetails";

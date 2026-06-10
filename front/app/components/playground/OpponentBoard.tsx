@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { createPortal } from "react-dom";
-import type { Hero } from "otta-shared-types/hero";
+import type { Hero } from "../../../types/hero";
 import CardSlot from "./CardSlot";
 import LargeCardView from "./LargeCardView";
-import type { Card } from 'otta-shared-types/card';
+import type { Card } from '../../../types/card';
 import CardDetails from "./CardDetails";
 
 interface OpponentBoardProps {

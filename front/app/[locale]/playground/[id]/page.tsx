@@ -9,11 +9,11 @@ import SpectatorBoard from '@/app/components/playground/SpectatorBoard'
 import PlayerHand from '../../../components/playground/PlayerHand';
 import GameStats from '../../../components/playground/GameStats';
 import ConfirmPlay from '../../../components/playground/ConfirmPlay';
-import type { Card } from 'otta-shared-types/card';
+import type { Card } from '../../../../types/card';
 import { io, Socket } from 'socket.io-client';
 import { useParams, useSearchParams } from 'next/navigation';
 import LargeCardView from '@/app/components/playground/LargeCardView';
-import { Hero } from 'otta-shared-types/hero';
+import { Hero } from '../../../../types/hero';
 import { useRouter, usePathname } from 'next/navigation'
 import { useLocale } from 'next-intl';
 import { useTranslations } from "next-intl";

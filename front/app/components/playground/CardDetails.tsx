@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Card } from "otta-shared-types/card";
+import { Card } from "../../../types/card";
 import { useTranslations } from "next-intl";
 import { useLocale } from 'next-intl';
 
