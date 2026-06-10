@@ -13,7 +13,7 @@ export default async function CommunityProfilePage({
 {
 
 	const { login }= await params;
-	const res = await fetch(`http://nodejs:3000/api/users/${login}`, {
+	const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/users/${login}`, {
 		cache: "no-store",
 	});
 	if (!res.ok)
