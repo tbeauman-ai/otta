@@ -240,7 +240,7 @@ const isPlayerHeroSelected = selectedTargets.some(t => t.target.kind === "hero" 
   useEffect(() => {
     if (!isSpectator && !selectedHero) return;
 
-    const newSocket = io();
+    const newSocket = io(process.env.NEXT_PUBLIC_BACKEND_URL);
     socketRef.current = newSocket;
     setSocket(newSocket);
 
