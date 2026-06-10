@@ -64,12 +64,14 @@ export function onConnection(io: Server, socket: Socket): void {
             return
         }
 
-        // Évite les doublons
-        const alreadyWaiting = waitingPlayers.some(
+        // Update socket if player reconnects while waiting, otherwise add new entry
+        const waitingIdx = waitingPlayers.findIndex(
             p => p.playerData.username === data.username && Number(p.playerData.roomId) === roomId
         )
-        if (!alreadyWaiting) {
-            waitingPlayers.push({ socket, playerData: { ...data, userId }, debug: data.debug})
+        if (waitingIdx === -1) {
+            waitingPlayers.push({ socket, playerData: { ...data, userId }, debug: data.debug })
+        } else {
+            waitingPlayers[waitingIdx].socket = socket
         }
 
         // ✅ Cherche un autre joueur dans la MÊME room, pas n'importe qui
@@ -94,7 +96,7 @@ export function onConnection(io: Server, socket: Socket): void {
                 launchGame(newSession)
             } catch (error) {
                 console.error('Erreur lancement game:', error)
-                socket.emit('error', { message: 'Impossible de charger les données du héros' })
+                playersInRoom.forEach(p => p.socket.emit('error', { message: 'Impossible de charger les données du héros' }))
             }
         }
     })

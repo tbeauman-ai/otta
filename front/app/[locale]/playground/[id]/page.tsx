@@ -240,7 +240,8 @@ const isPlayerHeroSelected = selectedTargets.some(t => t.target.kind === "hero" 
   useEffect(() => {
     if (!isSpectator && !selectedHero) return;
 
-    const newSocket = io(process.env.NEXT_PUBLIC_BACKEND_URL);
+    const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://transcendence42-production.up.railway.app';
+    const newSocket = io(BACKEND_URL, { transports: ["websocket"] });
     socketRef.current = newSocket;
     setSocket(newSocket);
 
